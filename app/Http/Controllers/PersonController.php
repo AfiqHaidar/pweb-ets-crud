@@ -13,6 +13,13 @@ class PersonController extends Controller
         return view('person.dashboard', ['persons' => $persons]);
     }
 
+    public function show()
+    {
+        $persons = Person::all();
+
+        return view('person.show', ['persons' => $persons]);
+    }
+
 
     public function detail($id)
     {

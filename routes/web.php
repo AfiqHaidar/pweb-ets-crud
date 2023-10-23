@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 // ------------------------------------------------------------------------------------------------
 
@@ -34,6 +34,9 @@ Route::post('/person/add', [PersonController::class, 'store'])->name('person.sto
 
 // get details person
 Route::get('/person/{id}', [PersonController::class, 'detail'])->name('person.details');
+
+// show
+Route::get('/person', [PersonController::class, 'show'])->name('person.show');
 
 // delete person
 Route::delete('/person/{id}', [PersonController::class, 'destroy'])->name('person.destroy');
