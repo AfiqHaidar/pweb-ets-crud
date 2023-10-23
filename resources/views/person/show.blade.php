@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Add Person') }}
+            {{ __('Person') }}
         </h2>
     </x-slot>
 
@@ -19,7 +19,7 @@
                     <div class="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
                         <h1 class="font-dmserif text-3xl font-bold text-white">{{ $person->name }}</h1>
                         <p class="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">{{ $person->date }} <br> {{ $person->quote }} </p>
-                        <button class="rounded-full mt-10 bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60 hover:bg-slate-50 hover:text-neutral-900">See More</button>
+                        <a  href="{{ route('person.details', ['id' => $person->id]) }}" class="rounded-full mt-10 bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60 hover:bg-slate-50 hover:text-neutral-900">See More</a>
                     </div>
                 </div>
              @endforeach
