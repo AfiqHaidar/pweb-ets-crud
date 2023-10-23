@@ -31,6 +31,11 @@ Route::get('/form.add', function () {
 })->middleware(['auth', 'verified'])->name('add');
 Route::post('/form.add', [PersonController::class, 'store'])->name('person.store');
 
+Route::get('/person/{id}', [PersonController::class, 'detail'])->name('person.details');
+Route::delete('/person/{id}', [PersonController::class, 'destroy'])->name('person.destroy');
+Route::put('/person/{id}', [PersonController::class, 'update'])->name('person.update');
+
+Route::get('/person/{id}/edit', [PersonController::class, 'edit'])->name('person.edit');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
