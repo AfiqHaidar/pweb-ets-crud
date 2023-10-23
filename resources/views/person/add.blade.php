@@ -5,10 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="flex flex-col min-h-screen items-center justify-center bg-neutral-800">
-        <div class="my-6">
-            <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-neutral-300 md:text-5xl lg:text-6xl"> Guest Form</h1>
-        </div>
+    <div class="flex flex-col min-h-screen items-center justify-start py-10">
     
         <div class=" flex-col justify-center items-center">
            <form method="POST" action="{{ route('person.store') }}"  enctype="multipart/form-data">
@@ -26,7 +23,7 @@
 
                 <div class="mb-6">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="biograph">Biograph:</label>
-                    <input type="text" id="biograph" name="biograph" value="{{ old('biograph') }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                    <textarea type="text" id="biograph" name="biograph" value="{{ old('biograph') }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" rows="5" required></textarea>
                 </div>
     
                 <div class="mb-6">
@@ -42,7 +39,7 @@
                 
                 <div class="mb-6 flex justify-center">
                     {{-- <a href="{{ route('guest.index') }}" class="rounded-l-full  bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60 hover:bg-slate-50 hover:text-neutral-900">Guest List</a> --}}
-                    <button type="submit" class="rounded-r-full  bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60 hover:bg-slate-50 hover:text-neutral-900" >Submit</button>
+                    <button type="submit" class="rounded-lg group flex justify-center items-center bg-gray-800 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60 hover:bg-slate-50 hover:text-gray-800" >Add</button>
                 </div>
                  </form>
             </div>

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Person;
+use App\Models\User;
 
 class PersonSeeder extends Seeder
 {
@@ -13,6 +14,7 @@ class PersonSeeder extends Seeder
      */
     public function run(): void
     {
-        Person::factory()->count(5)->create();
+        User::factory()->count(5)->create();
+        Person::factory()->count(30)->create();
     }
 }

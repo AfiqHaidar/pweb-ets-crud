@@ -26,7 +26,7 @@ class PersonFactory extends Factory
             'biograph' => $this->faker->paragraph,
             'image' => 'persons/' . $this->faker->image('public/storage/persons', 400, 300, null, false),
             'date' => $this->faker->date,
-            'user_id' => $this->faker->numberBetween(1, 2),
+            'user_id' => $this->faker->numberBetween(1, 6),
         ];
     }
 }
