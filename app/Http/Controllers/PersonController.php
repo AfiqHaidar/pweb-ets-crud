@@ -7,15 +7,10 @@ use App\Models\Person;
 
 class PersonController extends Controller
 {
-    // public function create()
-    // {
-    //     return view('guests.form');
-    // }
-
     public function index()
     {
         $persons = Person::where('user_id', auth()->user()->id)->get();
-        return view('dashboard', ['persons' => $persons]);
+        return view('person.dashboard', ['persons' => $persons]);
     }
 
 
@@ -24,10 +19,20 @@ class PersonController extends Controller
         $person = Person::find($id);
 
         if (!$person) {
-            // Handle the case where the person doesn't exist (e.g., show an error page)
         }
 
-        return view('form.detail', ['person' => $person]);
+        return view('person.detail', ['person' => $person]);
+    }
+
+    public function edit($id)
+    {
+        $person = Person::find($id);
+
+        if (!$person) {
+            return redirect()->route('person.dashboard')->with('error', 'Person not found');
+        }
+
+        return view('person.edit', ['person' => $person]);
     }
 
     public function store(Request $request)
@@ -47,7 +52,7 @@ class PersonController extends Controller
 
         Person::create($validatedData);
 
-        return redirect(route('dashboard'))->with('success', 'person added successfully.');
+        return redirect(route('person.dashboard'))->with('success', 'person added successfully.');
     }
 
     public function update(Request $request, $id)
@@ -55,7 +60,7 @@ class PersonController extends Controller
         $person = Person::find($id);
 
         if (!$person) {
-            return redirect()->route('dashboard')->with('error', 'Person not found');
+            return redirect()->route('person.dashboard')->with('error', 'Person not found');
         }
 
         $validatedData = $request->validate([
@@ -85,7 +90,7 @@ class PersonController extends Controller
 
         $person->save();
 
-        return redirect()->route('dashboard')->with('success', 'Person updated successfully');
+        return redirect()->route('person.dashboard')->with('success', 'Person updated successfully');
     }
 
     public function destroy($id)
@@ -96,18 +101,6 @@ class PersonController extends Controller
         }
 
         $person->delete();
-        return redirect(route('dashboard'))->with('success', 'Person deleted successfully');
-    }
-
-
-    public function edit($id)
-    {
-        $person = Person::find($id);
-
-        if (!$person) {
-            return redirect()->route('dashboard')->with('error', 'Person not found');
-        }
-
-        return view('form.edit', ['person' => $person]);
+        return redirect(route('person.dashboard'))->with('success', 'Person deleted successfully');
     }
 }

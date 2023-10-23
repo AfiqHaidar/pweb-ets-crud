@@ -19,23 +19,30 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+// ------------------------------------------------------------------------------------------------
+
+// get person list
 Route::get('/dashboard', [
     PersonController::class, 'index'
-])->middleware(['auth', 'verified'])->name('dashboard');
+])->middleware(['auth', 'verified'])->name('person.dashboard');
 
-Route::get('/form.add', function () {
-    return view('form.add');
-})->middleware(['auth', 'verified'])->name('add');
-Route::post('/form.add', [PersonController::class, 'store'])->name('person.store');
+// create person
+Route::get('/person/add', function () {
+    return view('person.add');
+})->middleware(['auth', 'verified'])->name('person.add');
+Route::post('/person/add', [PersonController::class, 'store'])->name('person.store');
 
+// get details person
 Route::get('/person/{id}', [PersonController::class, 'detail'])->name('person.details');
-Route::delete('/person/{id}', [PersonController::class, 'destroy'])->name('person.destroy');
-Route::put('/person/{id}', [PersonController::class, 'update'])->name('person.update');
 
+// delete person
+Route::delete('/person/{id}', [PersonController::class, 'destroy'])->name('person.destroy');
+
+//update person
+Route::put('/person/{id}', [PersonController::class, 'update'])->name('person.update');
 Route::get('/person/{id}/edit', [PersonController::class, 'edit'])->name('person.edit');
+
+// ----------------------------------------------------------------------------------------------------
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
