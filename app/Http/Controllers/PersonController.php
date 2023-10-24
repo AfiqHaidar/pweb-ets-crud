@@ -15,7 +15,7 @@ class PersonController extends Controller
 
     public function show()
     {
-        $persons = Person::all();
+        $persons = Person::paginate(9);
 
         return view('person.show', ['persons' => $persons]);
     }

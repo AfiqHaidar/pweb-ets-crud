@@ -24,6 +24,10 @@
                 </div>
              @endforeach
         </div>
+        <div class="my-10 flex flex-col">
+             {{ $persons->links() }} 
+        </div>
+       
     </div>
     
     
