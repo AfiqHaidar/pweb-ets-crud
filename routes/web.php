@@ -33,17 +33,17 @@ Route::get('/person/add', function () {
 Route::post('/person/add', [PersonController::class, 'store'])->name('person.store');
 
 // get details person
-Route::get('/person/{id}', [PersonController::class, 'detail'])->name('person.details');
+Route::get('/person/{id}', [PersonController::class, 'detail'])->middleware(['auth', 'verified'])->name('person.details');
 
 // show
-Route::get('/person', [PersonController::class, 'show'])->name('person.show');
+Route::get('/person', [PersonController::class, 'show'])->middleware(['auth', 'verified'])->name('person.show');
 
 // delete person
-Route::delete('/person/{id}', [PersonController::class, 'destroy'])->name('person.destroy');
+Route::delete('/person/{id}', [PersonController::class, 'destroy'])->middleware(['auth', 'verified'])->name('person.destroy');
 
 //update person
 Route::put('/person/{id}', [PersonController::class, 'update'])->name('person.update');
-Route::get('/person/{id}/edit', [PersonController::class, 'edit'])->name('person.edit');
+Route::get('/person/{id}/edit', [PersonController::class, 'edit'])->middleware(['auth', 'verified'])->name('person.edit');
 
 // ----------------------------------------------------------------------------------------------------
 

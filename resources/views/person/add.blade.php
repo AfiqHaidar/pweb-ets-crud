@@ -6,6 +6,20 @@
     </x-slot>
 
     <div class="flex flex-col min-h-screen items-center justify-start py-10">
+
+        <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
+            <div class="max-w-xl">
+
+                <header class="my-2">
+                    <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                        {{ __('Create a Person') }}
+                    </h2>
+            
+                    <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                        {{ __("Fill  all the forms below") }}
+                    </p>
+                </header>
+               
     
         <div class=" flex-col justify-center items-center">
            <form method="POST" action="{{ route('person.store') }}"  enctype="multipart/form-data">
@@ -42,6 +56,9 @@
                     <button type="submit" class="rounded-lg group flex justify-center items-center bg-gray-800 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60 hover:bg-slate-50 hover:text-gray-800" >Add</button>
                 </div>
                  </form>
+            </div>
+        </div>
+
             </div>
         </div>
 </x-app-layout>
