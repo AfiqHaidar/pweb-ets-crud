@@ -4,15 +4,21 @@
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                 {{ __('Dashboard') }}
             </h2>
-            <a href="{{ route('person.add') }}" class=" rounded-lg group flex justify-center items-center bg-gray-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60 hover:bg-slate-50 hover:text-gray-900">
+            <div class="flex justify-center items-center">
+                 <a href="{{ route('person.add') }}" class="mx-2 rounded-lg group flex justify-center items-center bg-gray-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60 hover:bg-slate-50 hover:text-gray-900">
                 <svg class="w-[12px] h-[12px] mr-1 group-hover:dark:text-gray-900 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 8h6m-3 3V5m-6-.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0ZM5 11h3a4 4 0 0 1 4 4v2H1v-2a4 4 0 0 1 4-4Z"/>
                 </svg>
                 Add Person
             </a>
+            @include('person.toast')
+            </div>
         </div>
         
     </x-slot>
+
+
+
 
     @foreach ($persons as $person)
     <div class="pt-3">
