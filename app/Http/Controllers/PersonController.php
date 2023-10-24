@@ -59,7 +59,7 @@ class PersonController extends Controller
 
         Person::create($validatedData);
 
-        return redirect(route('person.dashboard'))->with('success', 'person added successfully.');
+        return redirect(route('person.dashboard'))->with('success-c', 'person added successfully.');
     }
 
     public function update(Request $request, $id)
@@ -97,7 +97,7 @@ class PersonController extends Controller
 
         $person->save();
 
-        return redirect()->route('person.dashboard')->with('success', 'Person updated successfully');
+        return redirect()->route('person.dashboard')->with('success-u', 'Person updated successfully');
     }
 
     public function destroy($id)
@@ -108,6 +108,6 @@ class PersonController extends Controller
         }
 
         $person->delete();
-        return redirect(route('person.dashboard'))->with('success', 'Person deleted successfully');
+        return redirect(route('person.dashboard'))->with('success-d', 'Person deleted successfully');
     }
 }
